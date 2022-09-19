@@ -1,5 +1,11 @@
 // using functions from password generator we create a simple alert to prompt then generate a random percentage
 
+function createRandomNum(n){
+	let random = Math.random();
+	random = Math.floor(random*n)+1;
+	return random
+}
+
 function createRandomPercentage (name1, name2) {
 	let num = createRandomNum(100);
 	if (num >= 60){
