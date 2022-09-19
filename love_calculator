@@ -1,0 +1,14 @@
+// using functions from password generator we create a simple alert to prompt then generate a random percentage
+
+function createRandomPercentage (name1, name2) {
+	let num = createRandomNum(100);
+	if (num >= 60){
+		return alert("Amazing! " +num+ "%");
+	} else {
+	return alert("Oh Dear! " +num+ "%")
+	}
+}
+
+const name1 = prompt("What's your name?")
+const name2 = prompt("What's their name?")
+createRandomPercentage(name1,name2)
