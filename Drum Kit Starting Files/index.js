@@ -38,7 +38,8 @@ for (let i = 0; i<buttons.length;i++){
 // A global event listener using "Keydown" that listens for keydown with a function.key to grab keyboard strokes
 
 document.addEventListener("keydown",function(keyPressed){
-    gotClicked(keysAndSounds[keyPressed.key])    // add the main function to play audio with input from keydown funciton.key
+    let letter = keyPressed.key;
+    gotClicked(keysAndSounds[letter]);   // add the main function to play audio with input from keydown funciton.key
     
 })
 
