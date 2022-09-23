@@ -28,8 +28,8 @@ for (let i = 0; i<buttons.length;i++){
     buttons[i].addEventListener("click",function(){
         let c = this.innerHTML;
 // dictionary with keys to help with sounds
-        gotClicked(keysAndSounds[c])
-       
+        gotClicked(keysAndSounds[c]);
+        buttonAnimation(c);
     });
 }
 
@@ -38,10 +38,25 @@ for (let i = 0; i<buttons.length;i++){
 // A global event listener using "Keydown" that listens for keydown with a function.key to grab keyboard strokes
 
 document.addEventListener("keydown",function(keyPressed){
-    let letter = keyPressed.key;
-    gotClicked(keysAndSounds[letter]);   // add the main function to play audio with input from keydown funciton.key
-    
+    let letterDown = keyPressed.key;
+    letter = keysAndSounds[letterDown];
+    console.log(letter)
+    gotClicked(letter);   // add the main function to play audio with input from keydown funciton.key
+    buttonAnimation(letterDown);
 })
+
+// annimate button press or keydown
+
+function buttonAnimation(buttonLetter){
+//    console.log('.'+ buttonLetter)
+    let activebutton = document.querySelector('.'+ buttonLetter);
+    activebutton.classList.add("pressed");        // add styling using classList.add(CLASS from stylesheet)
+
+    // set a timeout function to remove the background from a button using .remove
+
+    setTimeout(function(){activebutton.classList.remove("pressed");},100)  // remove styling using classList.remove(CLASS from stylesheet)
+
+}
 
 
 // boring way to replace a dictionary
